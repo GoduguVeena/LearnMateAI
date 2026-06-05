@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Sparkles,
   Brain,
@@ -12,7 +12,6 @@ import {
   Upload,
   Trash2,
   ArrowRight,
-  User,
   Play,
   Pause,
   RotateCcw,
@@ -22,9 +21,7 @@ import {
   Plus,
   X,
   Menu,
-  Search,
   BookOpenCheck,
-  TrendingUp,
   History,
   Activity,
   LogOut,
@@ -161,6 +158,7 @@ function App() {
 
   // Run on load
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchHistory();
     // Setup initial Pomodoro timer countdown
     return () => clearInterval(timerRef.current);
@@ -218,6 +216,7 @@ function App() {
         showToast("Failed to archive study record.", "error");
       }
     } catch (err) {
+      console.error(err);
       showToast("Backend connection issue.", "error");
     }
   };
@@ -271,6 +270,7 @@ function App() {
         showToast(resData.error || "Failed to generate summary.", "error");
       }
     } catch (err) {
+      console.error(err);
       showToast("Could not communicate with Flask API server.", "error");
     } finally {
       setLoading(false);
@@ -322,6 +322,7 @@ function App() {
         showToast(resData.error || "Failed to compile quiz.", "error");
       }
     } catch (err) {
+      console.error(err);
       showToast("Could not connect to Flask API server.", "error");
     } finally {
       setLoading(false);
@@ -392,6 +393,7 @@ function App() {
         showToast("Error processing academic chat doubt.", "error");
       }
     } catch (err) {
+      console.error(err);
       setChatMessages((prev) => prev.filter((msg) => !msg.typing));
       showToast("Doubt solver backend is offline.", "error");
     }
@@ -439,6 +441,7 @@ function App() {
         showToast(resData.error || "Failed to make schedule.", "error");
       }
     } catch (err) {
+      console.error(err);
       showToast("Backend planner system is currently offline.", "error");
     } finally {
       setLoading(false);
@@ -475,6 +478,7 @@ function App() {
         showToast(resData.error || "Failed to enter Exam Mode.", "error");
       }
     } catch (err) {
+      console.error(err);
       showToast("Exam prep mode engine is currently offline.", "error");
     } finally {
       setLoading(false);

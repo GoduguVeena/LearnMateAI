@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-text antialiased selection:bg-brand-purple/30 selection:text-brand-accent overflow-x-hidden;
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom styled scrollbars for futuristic feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #06050F;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #221F45;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B5CF6;
+  }
+}
+
+/* Futuristic glassmorphic utility classes */
+.glass-panel {
+  background: rgba(17, 15, 36, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(34, 31, 69, 0.6);
+}
+
+.glass-panel-glow-purple {
+  background: rgba(17, 15, 36, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.1);
+}
+
+.glass-panel-glow-blue {
+  background: rgba(17, 15, 36, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.1);
+}
+
+.glass-panel-glow-cyan {
+  background: rgba(17, 15, 36, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.1);
+}
+
+.text-gradient-purple-blue {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-purple via-brand-accent to-brand-blue;
+}
+
+.text-gradient-cyan-blue {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan to-brand-blue;
+}
+
+.btn-premium {
+  @apply relative overflow-hidden rounded-xl font-semibold px-6 py-3 transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer;
+  background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+  color: #FFFFFF;
+}
+
+.btn-premium:hover {
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+  @apply -translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply rounded-xl font-semibold px-6 py-3 transition-all duration-300 border border-dark-border bg-dark-card hover:bg-dark-border hover:border-brand-purple/50 flex items-center justify-center gap-2 text-dark-text cursor-pointer;
+}
+
+/* Custom typewriter glow keyframes */
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.cursor-blink {
+  border-right: 2px solid #8B5CF6;
+  animation: blink 0.75s step-end infinite;
+}

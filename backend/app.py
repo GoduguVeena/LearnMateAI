@@ -71,7 +71,7 @@ def summarize_endpoint():
             file_bytes = file.read()
             
             # Check extension
-            if file.filename.endswith(".pdf"):
+            if file.filename.lower().endswith(".pdf"):
                 content = extract_text_from_pdf(file_bytes)
                 if not content or len(content.strip()) < 10:
                     # Scanned PDF or blank file fallback to keep presentation 100% bulletproof!
